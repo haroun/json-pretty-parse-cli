@@ -1,0 +1,42 @@
+{
+  "name": "json-pretty",
+  "version": "1.0.0",
+  "description": "JSON parse & stringify",
+  "main": "cli.js",
+  "scripts": {
+    "test": "tape test.js | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haroun/json-pretty.git"
+  },
+  "keywords": [
+    "json",
+    "parse",
+    "stringify",
+    "unescape"
+  ],
+  "author": "Harouna Traore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haroun/json-pretty/issues"
+  },
+  "homepage": "https://github.com/haroun/json-pretty#readme",
+  "devDependencies": {
+    "execa": "^0.8.0",
+    "faucet": "0.0.1",
+    "tape": "^4.8.0",
+    "xo": "^0.18.2"
+  },
+  "dependencies": {
+    "get-stdin": "^5.0.1",
+    "meow": "^4.0.0"
+  },
+  "bin": {
+    "json-pretty": "cli.js"
+  },
+  "xo": {
+    "space": true,
+    "semicolon": false
+  }
+}
