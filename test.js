@@ -3,7 +3,7 @@ const execa = require('execa')
 
 const escape = string => JSON.stringify(string)
 
-test('json-pretty unescaped string', async assert => {
+test('unescaped string', async assert => {
   const message = 'should return JSON object'
 
   const {stdout} = await execa(
@@ -28,7 +28,7 @@ test('json-pretty unescaped string', async assert => {
   assert.end()
 })
 
-test('json-pretty escaped once string', async assert => {
+test('escaped once string', async assert => {
   const message = 'should return JSON object'
 
   const {stdout} = await execa(
@@ -49,7 +49,7 @@ test('json-pretty escaped once string', async assert => {
   assert.end()
 })
 
-test('json-pretty escaped twice string', async assert => {
+test('escaped twice string', async assert => {
   const message = 'should return JSON object'
 
   const {stdout} = await execa(
@@ -70,7 +70,7 @@ test('json-pretty escaped twice string', async assert => {
   assert.end()
 })
 
-test('json-pretty without spaces', async assert => {
+test('without spaces', async assert => {
   const message = 'stdin should be transformed into JSON object'
 
   const {stdout} = await execa('./cli.js', ['--space', 0], {input: '{"number":42,"string":"string"}'})
@@ -86,7 +86,7 @@ test('json-pretty without spaces', async assert => {
   assert.end()
 })
 
-test('json-pretty without spaces (alias)', async assert => {
+test('without spaces (alias)', async assert => {
   const message = 'stdin should be transformed into JSON object'
 
   const {stdout} = await execa('./cli.js', ['-s', 0], {input: '{"number":42,"string":"string"}'})
@@ -102,7 +102,7 @@ test('json-pretty without spaces (alias)', async assert => {
   assert.end()
 })
 
-test('json-pretty using stdin', async assert => {
+test('using stdin', async assert => {
   const message = 'stdin should be transformed into JSON object'
 
   const {stdout} = await execa('./cli.js', [], {input: '{"number":42,"string":"string"}'})
@@ -118,7 +118,7 @@ test('json-pretty using stdin', async assert => {
   assert.end()
 })
 
-test('json-pretty using stdin without spaces', async assert => {
+test('using stdin without spaces', async assert => {
   const message = 'stdin should be transformed into JSON object'
 
   const {stdout} = await execa('./cli.js', ['-s', 0], {input: '{"number":42,"string":"string"}'})

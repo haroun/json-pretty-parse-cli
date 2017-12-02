@@ -1,5 +1,5 @@
 {
-  "name": "json-pretty",
+  "name": "json-pretty-parse",
   "version": "1.0.0",
   "description": "JSON parse & stringify",
   "main": "cli.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haroun/json-pretty.git"
+    "url": "git+https://github.com/haroun/json-pretty-parse.git"
   },
   "keywords": [
     "json",
@@ -19,9 +19,9 @@
   "author": "Harouna Traore",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/haroun/json-pretty/issues"
+    "url": "https://github.com/haroun/json-pretty-parse/issues"
   },
-  "homepage": "https://github.com/haroun/json-pretty#readme",
+  "homepage": "https://github.com/haroun/json-pretty-parse#readme",
   "devDependencies": {
     "execa": "^0.8.0",
     "faucet": "0.0.1",
@@ -33,7 +33,7 @@
     "meow": "^4.0.0"
   },
   "bin": {
-    "json-pretty": "cli.js"
+    "jsonpp": "cli.js"
   },
   "xo": {
     "space": true,
