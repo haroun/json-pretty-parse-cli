@@ -133,3 +133,19 @@ test('using stdin without spaces', async assert => {
 
   assert.end()
 })
+
+test('using stdin with escaped once string', async assert => {
+  const message = 'should return JSON object'
+
+  const {stdout} = await execa('./cli.js', [], {input: escape('{"number":42,"string":"string"}')})
+
+  const actual = stdout
+  const expected = `{
+    "number": 42,
+    "string": "string"
+  }`
+
+  assert.equal(actual, expected, message)
+
+  assert.end()
+})
