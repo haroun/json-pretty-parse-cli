@@ -38,7 +38,14 @@ const flags = cli.flags
 const space = parseInt(flags.space, 10)
 
 const pretty = ({data = '', space = 2}) => {
-  console.log(data, space)
+  const replacer = (key, value) => {
+    const regex = new RegExp('\\"')
+
+    return (typeof value === 'string' && regex.test(value)) ?
+      replacer(key, JSON.parse(value)) : value
+  }
+
+  console.log(JSON.stringify(data, replacer, space))
 }
 
 if (input) {
