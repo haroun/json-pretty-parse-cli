@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/haroun/json-pretty-parse#readme",
   "devDependencies": {
+    "dedent": "^0.7.0",
     "execa": "^0.8.0",
     "faucet": "0.0.1",
     "tape": "^4.8.0",

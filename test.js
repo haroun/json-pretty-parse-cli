@@ -1,5 +1,6 @@
 const test = require('tape')
 const execa = require('execa')
+const dedent = require('dedent')
 
 const escape = string => JSON.stringify(string)
 
@@ -14,12 +15,18 @@ test('unescaped string', async assert => {
   )
 
   const actual = stdout
-  const expected = `{
+  const expected = dedent`{
     "number": 42,
     "string": "this is a string obviously",
     "boolean": true,
-    "array": [1, 2, 4],
-    "object": {"a": 1},
+    "array": [
+      1,
+      2,
+      4
+    ],
+    "object": {
+      "a": 1
+    },
     "null": null
   }`
 
@@ -39,7 +46,7 @@ test('escaped once string', async assert => {
   )
 
   const actual = stdout
-  const expected = `{
+  const expected = dedent`{
     "number": 42,
     "string": "string"
   }`
@@ -60,7 +67,7 @@ test('escaped twice string', async assert => {
   )
 
   const actual = stdout
-  const expected = `{
+  const expected = dedent`{
     "number": 42,
     "string": "string"
   }`
@@ -76,10 +83,7 @@ test('without spaces', async assert => {
   const {stdout} = await execa('./cli.js', ['--space', 0], {input: '{"number":42,"string":"string"}'})
 
   const actual = stdout
-  const expected = `{
-  "number": 42,
-  "string": "string"
-  }`
+  const expected = `{"number":42,"string":"string"}`
 
   assert.equal(actual, expected, message)
 
@@ -92,10 +96,7 @@ test('without spaces (alias)', async assert => {
   const {stdout} = await execa('./cli.js', ['-s', 0], {input: '{"number":42,"string":"string"}'})
 
   const actual = stdout
-  const expected = `{
-  "number": 42,
-  "string": "string"
-  }`
+  const expected = `{"number":42,"string":"string"}`
 
   assert.equal(actual, expected, message)
 
@@ -108,7 +109,7 @@ test('using stdin', async assert => {
   const {stdout} = await execa('./cli.js', [], {input: '{"number":42,"string":"string"}'})
 
   const actual = stdout
-  const expected = `{
+  const expected = dedent`{
     "number": 42,
     "string": "string"
   }`
@@ -124,10 +125,7 @@ test('using stdin without spaces', async assert => {
   const {stdout} = await execa('./cli.js', ['-s', 0], {input: '{"number":42,"string":"string"}'})
 
   const actual = stdout
-  const expected = `{
-    "number": 42,
-    "string": "string"
-  }`
+  const expected = `{"number":42,"string":"string"}`
 
   assert.equal(actual, expected, message)
 
@@ -140,7 +138,7 @@ test('using stdin with escaped once string', async assert => {
   const {stdout} = await execa('./cli.js', [], {input: escape('{"number":42,"string":"string"}')})
 
   const actual = stdout
-  const expected = `{
+  const expected = dedent`{
     "number": 42,
     "string": "string"
   }`
