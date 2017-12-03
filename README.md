@@ -1,6 +1,6 @@
 # json-pretty-parse-cli [![Build Status](https://travis-ci.org/haroun/b64-cli.svg?branch=master)](https://travis-ci.org/haroun/json-pretty-parse-cli)
 
-> Command line interface to unescape and forma JSON data
+> Command line interface to unescape and format JSON data using stringify and parse
 
 When I need to check a JSON message from a log entry, I often get an escaped string with no spaces, no new lines.
 Then the journey begin, I open a text-editor, replace all escaped quotes, open a new tab with a JSON formatted, copy/paste the unsecaped JSON, format, copy/paste the result back to my text-editor, I'm good to go.
