@@ -3,9 +3,9 @@
 > Command line interface to unescape and format JSON data using stringify and parse
 
 When I need to check a JSON message from a log entry, I often get an escaped string with no spaces, no new lines.
-Then the journey begin, I open a text-editor, replace all escaped quotes, open a new tab with a JSON formatted, copy/paste the unsecaped JSON, format, copy/paste the result back to my text-editor, I'm good to go.
+Then the journey begin, I open a text-editor, replace all escaped quotes, open a new tab with a JSON formatted, copy/paste the unescaped JSON, format, copy/paste the result back to my text-editor, I'm good to go.
 
-Whith `jsonpp`, first I use `JSON.stringify` and for each string entries with escaped strings, I do a `JSON.parse` using the replacer function.
+With `jsonpp`, first I use `JSON.stringify` and for each string entries with escaped strings, I do a `JSON.parse` using the replacer function.
 This may not be the fastest way to do it, but it seems solid so far.
 
 If you need a command to unescape and format a JSON string, `jsonpp` is your man or woman.
