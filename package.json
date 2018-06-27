@@ -33,15 +33,11 @@
     "get-stdin": "^6.0.0",
     "meow": "^5.0.0"
   },
-  "engines": [
-    10,
-    9,
-    8,
-    7,
-    6
-  ],
   "bin": {
     "jsonpp": "cli.js"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   },
   "xo": {
     "space": true,
