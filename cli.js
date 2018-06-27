@@ -32,8 +32,7 @@ const cli = meow(`$ jsonpp --help
   }
 })
 
-const input = cli.input[0]
-const flags = cli.flags
+const {input: [input], flags} = cli
 
 const space = parseInt(flags.space, 10)
 
