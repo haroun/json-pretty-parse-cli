@@ -40,8 +40,12 @@ const pretty = ({data = '', space = 2}) => {
   const replacer = (key, value) => {
     const regex = new RegExp('\\"')
 
-    return (typeof value === 'string' && regex.test(value)) ?
-      replacer(key, JSON.parse(value)) : value
+    try {
+      return (typeof value === 'string' && regex.test(value)) ?
+        replacer(key, JSON.parse(value)) : value
+    } catch (err) {
+      return value
+    }
   }
 
   console.log(JSON.stringify(data, replacer, space))
