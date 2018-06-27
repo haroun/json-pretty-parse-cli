@@ -147,3 +147,25 @@ test('using stdin with escaped once string', async assert => {
 
   assert.end()
 })
+
+test('error in escaped twice string should fallback to JSON.parse', async assert => {
+  const message = 'should return JSON object'
+
+  const {stdout} = await execa(
+    './cli.js',
+    [
+      escape(escape(`{"number":42,"string":"string","data":${escape('escaped {"number":42}')}}`))
+    ]
+  )
+
+  const actual = stdout
+  const expected = dedent`{
+    "number": 42,
+    "string": "string",
+    "data": "escaped {\"number\":42}"
+  }`
+
+  assert.equal(actual, expected, message)
+
+  assert.end()
+})
