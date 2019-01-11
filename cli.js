@@ -43,7 +43,7 @@ const pretty = ({data = '', space = 2}) => {
     try {
       return (typeof value === 'string' && regex.test(value)) ?
         replacer(key, JSON.parse(value)) : value
-    } catch (err) {
+    } catch (error) {
       return value
     }
   }

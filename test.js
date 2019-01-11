@@ -83,7 +83,7 @@ test('without spaces', async assert => {
   const {stdout} = await execa('./cli.js', ['--space', 0], {input: '{"number":42,"string":"string"}'})
 
   const actual = stdout
-  const expected = `{"number":42,"string":"string"}`
+  const expected = '{"number":42,"string":"string"}'
 
   assert.equal(actual, expected, message)
 
@@ -96,7 +96,7 @@ test('without spaces (alias)', async assert => {
   const {stdout} = await execa('./cli.js', ['-s', 0], {input: '{"number":42,"string":"string"}'})
 
   const actual = stdout
-  const expected = `{"number":42,"string":"string"}`
+  const expected = '{"number":42,"string":"string"}'
 
   assert.equal(actual, expected, message)
 
@@ -125,7 +125,7 @@ test('using stdin without spaces', async assert => {
   const {stdout} = await execa('./cli.js', ['-s', 0], {input: '{"number":42,"string":"string"}'})
 
   const actual = stdout
-  const expected = `{"number":42,"string":"string"}`
+  const expected = '{"number":42,"string":"string"}'
 
   assert.equal(actual, expected, message)
 
