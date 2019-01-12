@@ -1,6 +1,6 @@
 {
   "name": "json-pretty-parse-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Command line interface to unescape and format JSON data using stringify and parse",
   "main": "cli.js",
   "scripts": {
