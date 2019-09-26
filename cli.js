@@ -6,17 +6,19 @@ const stdin = require('get-stdin')
 const cli = meow(`$ jsonpp --help
 
   Usage
-    $ jsonpp <options> <string>
+    $ jsonpp [--space] <string>
+    $ echo <string> | jsonpp [--space]
 
-  Options:
+  Options
     -s, --space Space
 
-  Example
+  Examples
     $ jsonpp '{"number":42,"string":"string"}'
     {
       "number": 42,
       "string": "string"
     }
+
     $ echo '{"number":42,"string":"string"}' | jsonpp -s 4
     {
         "number": 42,
@@ -34,16 +36,21 @@ const cli = meow(`$ jsonpp --help
 
 const {input: [input], flags} = cli
 
+if (!input && process.stdin.isTTY) {
+  console.error('Please specify text to parse')
+  process.exit(1)
+}
+
 const space = parseInt(flags.space, 10)
 
 const pretty = ({data = '', space = 2}) => {
   const replacer = (key, value) => {
-    const regex = new RegExp('\\"')
+    const regex = /"/
 
     try {
       return (typeof value === 'string' && regex.test(value)) ?
         replacer(key, JSON.parse(value)) : value
-    } catch (error) {
+    } catch (_) {
       return value
     }
   }
@@ -51,8 +58,11 @@ const pretty = ({data = '', space = 2}) => {
   console.log(JSON.stringify(data, replacer, space))
 }
 
-if (input) {
-  pretty({data: input, space})
-} else {
-  stdin().then(data => pretty({data, space}))
-}
+(async () => {
+  if (input) {
+    pretty({data: input, space})
+  } else {
+    const data = await stdin()
+    pretty({data, space})
+  }
+})()

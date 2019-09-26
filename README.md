@@ -17,6 +17,12 @@ If you need a command to unescape and format a JSON string, `jsonpp` is your man
 $ npm install --global json-pretty-parse-cli
 ```
 
+If you don't want to install the package globally, you can use npx instead
+
+```
+$ npx @haroun/json-pretty-parse-cli
+```
+
 
 ## Usage
 
@@ -24,27 +30,31 @@ $ npm install --global json-pretty-parse-cli
 $ jsonpp --help
 
   Usage
-    $ jsonpp <options> <string>
+    $ jsonpp [--space] <string>
+    $ echo <string> | jsonpp [--space]
 
-  Options:
+  Options
     -s, --space Space
 
-  Example
+  Examples
     $ jsonpp '{"number":42,"string":"string"}'
     {
       "number": 42,
       "string": "string"
     }
+
     $ jsonpp -s 4 '{\"number\":42,\"string\":\"string\"}'
     {
         "number": 42,
         "string": "string"
     }
+
     $ echo '{\\\"number\\":42,\\\"string\\\":\\\"string\\\"}' | jsonpp
     {
       "number": 42,
       "string": "string"
     }
+
     $ echo '{"number":42,"string":"string"}' | jsonpp -s 4
     {
         "number": 42,
