@@ -41,7 +41,7 @@ if (!input && process.stdin.isTTY) {
   process.exit(1)
 }
 
-const space = parseInt(flags.space, 10)
+const space = Number.parseInt(flags.space, 10)
 
 const pretty = ({data = '', space = 2}) => {
   const replacer = (key, value) => {
@@ -50,7 +50,7 @@ const pretty = ({data = '', space = 2}) => {
     try {
       return (typeof value === 'string' && regex.test(value)) ?
         replacer(key, JSON.parse(value)) : value
-    } catch (_) {
+    } catch {
       return value
     }
   }
