@@ -1,4 +1,4 @@
-# json-pretty-parse-cli [![Build Status](https://travis-ci.org/haroun/b64-cli.svg?branch=master)](https://travis-ci.org/haroun/json-pretty-parse-cli)
+# json-pretty-parse-cli ![Node.js CI](https://github.com/haroun/json-pretty-parse-cli/workflows/Node.js%20CI/badge.svg) ![CodeQL](https://github.com/haroun/json-pretty-parse-cli/workflows/CodeQL/badge.svg)
 
 > Command line interface to unescape and format JSON data using stringify and parse
 
