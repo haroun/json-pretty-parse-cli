@@ -4,7 +4,10 @@
   "description": "Command line interface to unescape and format JSON data using stringify and parse",
   "main": "cli.js",
   "scripts": {
-    "test": "xo && tape test.js | faucet"
+   "debug": "node --inspect --inspect-brk cli.js",
+   "test": "tape test.js | faucet",
+   "postversion": "git push && git push --tags",
+   "pretest": "xo"
   },
   "repository": {
     "type": "git",
