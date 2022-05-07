@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-const meow = require('meow')
-const stdin = require('get-stdin')
+import process from 'node:process'
+import meow from 'meow'
+import stdin from 'get-stdin'
 
 const cli = meow(`$ jsonpp --help
 
@@ -25,13 +26,14 @@ const cli = meow(`$ jsonpp --help
         "string": "string"
     }
 `, {
+  importMeta: import.meta,
   flags: {
     space: {
       type: 'number',
       alias: 's',
-      default: 2
-    }
-  }
+      default: 2,
+    },
+  },
 })
 
 const {input: [input], flags} = cli
@@ -48,8 +50,9 @@ const pretty = ({data = '', space = 2}) => {
     const regex = /"/
 
     try {
-      return (typeof value === 'string' && regex.test(value)) ?
-        replacer(key, JSON.parse(value)) : value
+      return (typeof value === 'string' && regex.test(value))
+        ? replacer(key, JSON.parse(value))
+        : value
     } catch {
       return value
     }
